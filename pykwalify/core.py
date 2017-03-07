@@ -175,6 +175,10 @@ class Core(object):
                 raise SchemaError(u"Schema validation failed:\n - {error_msg}.".format(
                     error_msg=u'.\n - '.join(self.validation_errors)))
             else:
+            	return {
+            		'error': True,
+            		'message': SchemaError(u"Schema validation failed:\n - {error_msg}.".format(error_msg=u'.\n - '.join(self.validation_errors)))
+            	}
                 log.error(u"Errors found but will not raise exception...")
 
         # Return validated data
